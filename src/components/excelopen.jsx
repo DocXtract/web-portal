@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FileSaver from 'file-saver';
 import './table.css';
-import AWS from 'aws-sdk'
 import axios from 'axios';
 const XLSX = require('xlsx');
 

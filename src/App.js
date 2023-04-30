@@ -6,6 +6,7 @@ import OpenPdf from './components/openpdf';
 import qr from "./qr.png"
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import { base_url } from './config';
 
 function App() {
   const [forms, setForms] = useState({})
@@ -15,10 +16,10 @@ function App() {
   const [excelKey, setExcelKey] = useState('')
   const [pdfKey, setPdfKey] = useState('')
   const excelRef = useRef(null);
-  const [showMain, setShowMain] = useState(true)
+  // const [showMain, setShowMain] = useState(true)
   const [showNew, setShowNew] = useState(false)
   useEffect(() => {
-    axios.get('http://169.226.47.83:8000/getAllForms/').then(res => {
+    axios.get(`${base_url}/getAllForms/`).then(res => {
       console.log(res.data)
       const data = res.data
       for (const key in data) {
@@ -44,7 +45,7 @@ function App() {
     }
     updateForm[form.index].active = true
     setForms(updateForm)
-    axios.get(`http://169.226.47.83:8000/getResponses/${form.index}`, {
+    axios.get(`${base_url}/getResponses/${form.index}`, {
       data: undefined
     },).then(res => {
       console.log(res.data)

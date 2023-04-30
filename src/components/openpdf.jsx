@@ -5,13 +5,13 @@ const OpenPdf = ({ fileKey }) => {
     useEffect(() => {
         setUrl(fileKey)
     }, [fileKey])
-    const handlePrint = () => {
-        window.print();
-    };
+    // const handlePrint = () => {
+    //     window.print();
+    // };
 
     return (
         <div>
-            {url !== '' && <iframe title="" src={url} />}
+            {url !== '' && <iframe title="Pdf" src={url} />}
         </div>
     );
 };
